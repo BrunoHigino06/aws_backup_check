@@ -11,7 +11,7 @@ def aws_backup_check():
     if json_response is None:
         print("Any backup funded in account: "+json_response['BackupJobs']['AccountId'])
     else:
-        print("backup funded in account: "+json_response['BackupJobs']['AccountId'])
+        print("backup funded in account: ")
 
 
 aws_backup_check()
