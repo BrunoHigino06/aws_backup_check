@@ -9,7 +9,7 @@ def aws_backup_check():
 
     json_response = json.dumps(response, indent=4, sort_keys=True, default=str)
 
-    f = json.load(json_response)
+    f = json.loads(json_response)
 
     finder = f['BackupJobs']
 
