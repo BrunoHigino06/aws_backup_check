@@ -6,3 +6,6 @@ def aws_backup_check():
         MaxResults=1,
     )
     print("Teste response: "+response)
+
+
+aws_backup_check
