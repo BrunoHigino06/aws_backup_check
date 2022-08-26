@@ -8,4 +8,4 @@ def aws_backup_check():
     print("Teste response: "+response)
 
 
-aws_backup_check
+aws_backup_check()
