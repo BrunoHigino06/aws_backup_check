@@ -13,10 +13,10 @@ def aws_backup_check():
 
     if find is None:
         print("Any backup funded in account: "+json_response['BackupJobs']['AccountId'])
-        print(find)
+        print(json_response)
     else:
         print("backup funded in account: ")
-        print(find)
+        print(json_response)
 
 
 aws_backup_check()
