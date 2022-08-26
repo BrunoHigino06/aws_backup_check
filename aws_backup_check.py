@@ -12,11 +12,11 @@ def aws_backup_check():
     json_response = json.dumps(response, indent=4, sort_keys=True, default=str)
 
     database = json.loads(json_response)
-    for jobId in database['BackupJobs']:
-        if jobId['BackupJobId'] in database['BackupJobs']:
-            print('JobId not found')
-        else:
-            print(jobId['BackupJobId'])
+    if database['BackupJobs']['BackupJobId'] in database['BackupJobs']:
+        print('funded')
+
+    else:
+        print('not found')
 
 
 aws_backup_check()
