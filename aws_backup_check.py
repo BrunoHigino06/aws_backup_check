@@ -7,18 +7,12 @@ def aws_backup_check():
         MaxResults=1
     )
 
-    json_response = json.dumps(response, indent=4, sort_keys=True)
+    json_response = json.dumps(response, indent=4, sort_keys=True, default=str)
 
-    f = json.loads(json_response)
+    database = json.loads(json_response)
 
-    finder = f['BackupJobs']['AccountId']
-
-    if finder is None:
-        print("Any backup funded in account: "+json_response['BackupJobs']['AccountId'])
-        print(f)
-    else:
-        print("backup funded in account: ")
-        print(f)
+    for jobId in database['Accounts']:
+        print(jobId['BackupJobId'])
 
 
 aws_backup_check()
