@@ -11,7 +11,7 @@ def aws_backup_check():
 
     database = json.loads(json_response)
 
-    for jobId in database['Accounts']:
+    for jobId in database['BackupJobs']:
         print(jobId['BackupJobId'])
 
 
