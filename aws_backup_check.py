@@ -5,4 +5,4 @@ def aws_backup_check():
     response = client.list_backup_jobs(
         MaxResults=1,
     )
-    print(response)
+    print("Teste response: "+response)
