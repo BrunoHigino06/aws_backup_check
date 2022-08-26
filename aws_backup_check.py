@@ -15,7 +15,7 @@ def aws_backup_check():
     test = 1
     for jobId in database['BackupJobs']:
         if jobId['BackupJobId'] == 'null':
-            test = 'Id not found'
+            test = test+1
         else:
             print(jobId['BackupJobId'])
     return test
