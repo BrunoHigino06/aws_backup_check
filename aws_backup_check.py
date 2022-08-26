@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 import boto3
 import json
 
@@ -13,7 +12,7 @@ def aws_backup_check():
     database = json.loads(json_response)
 
     for jobId in database['BackupJobs']:
-        if jobId['BackupJobId'] == '':
+        if jobId['BackupJobId'] == 'null':
             print('No ID')
         else:
             print(jobId['BackupJobId'])
