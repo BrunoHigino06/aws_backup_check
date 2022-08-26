@@ -12,6 +12,7 @@ def aws_backup_check():
     database = json.loads(json_response)
 
     for jobId in database['BackupJobs']:
+        print('Check the if have Backup Id')
         if jobId['BackupJobId'] == '':
             print('No ID')
         else:
