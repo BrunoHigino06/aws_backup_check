@@ -1,4 +1,3 @@
-from cgi import test
 from time import process_time_ns
 import boto3
 import json
@@ -12,11 +11,13 @@ def aws_backup_check():
     json_response = json.dumps(response, indent=4, sort_keys=True, default=str)
 
     database = json.loads(json_response)
-    if database['BackupJobs']['BackupJobId'] in database['BackupJobs']:
-        print('funded')
-
+    
+    if "BackupJobId" in database['BackupJobs']:
+        print("Key exist in JSON data")
     else:
-        print('not found')
+        print("Key doesn't exist in JSON data")
+
+
 
 
 aws_backup_check()
