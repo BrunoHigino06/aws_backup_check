@@ -8,11 +8,11 @@ def aws_backup_check():
         MaxResults=1
     )
 
-    json_response = json.dumps(response, indent=4, sort_keys=True, default=int)
+    json_response = json.dumps(response, indent=4, sort_keys=True, default=str)
 
     database = json.loads(json_response)
 
-    if ['BackupJobId'] in database['BackupJobs']:
+    if database['BackupJobs'] in database['BackupJobs']:
         print('No ID')
     else:
         print(database['BackupJobs'])
