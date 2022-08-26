@@ -1,11 +1,14 @@
 import boto3
+import json
 
 def aws_backup_check():
-    client = boto3.client('backup')
+    client = boto3.client('backup', region_name='us-east-1')
     response = client.list_backup_jobs(
         MaxResults=1
     )
-    print("Teste response: "+response)
+
+    json_response = json.dumps(response, indent=4)
+    print("Response test: "+json_response)
 
 
 aws_backup_check()
