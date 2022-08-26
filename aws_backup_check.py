@@ -8,10 +8,15 @@ def aws_backup_check():
     )
 
     json_response = json.dumps(response, indent=4, sort_keys=True, default=str)
-    if json_response is None:
+
+    find = json_response['BackupJobs']
+
+    if find is None:
         print("Any backup funded in account: "+json_response['BackupJobs']['AccountId'])
+        print(find)
     else:
         print("backup funded in account: ")
+        print(find)
 
 
 aws_backup_check()
