@@ -1,3 +1,4 @@
+from cgi import test
 from time import process_time_ns
 import boto3
 import json
@@ -14,11 +15,10 @@ def aws_backup_check():
 
     for jobId in database['BackupJobs']:
         if jobId['BackupJobId'] == 'null':
-            print('No ID')
+            test = 'Id not found'
         else:
             print(jobId['BackupJobId'])
-
-        print('test')
+    return test
 
 
 aws_backup_check()
