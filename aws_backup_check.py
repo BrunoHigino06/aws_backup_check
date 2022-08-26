@@ -3,7 +3,7 @@ import boto3
 import json
 
 def aws_backup_check():
-    client = boto3.client('backup', region_name='sa-east-1')
+    client = boto3.client('backup', region_name='us-east-1')
     response = client.list_backup_jobs(
         MaxResults=1
     )
@@ -12,13 +12,12 @@ def aws_backup_check():
 
     database = json.loads(json_response)
 
-    BackupJobId = database['BackupJobs']['BackupJobId']
-    
-    if BackupJobId in database['BackupJobs']:
-        print("Key exist in JSON data")
-    else:
-        print("Key doesn't exist in JSON data")
-        print(database)
+    for jobId in database['BackupJobs']:
+
+        if jobId['BackupJobId'] in database['BackupJobs']:
+            print('No ID')
+        else:
+            print(jobId['BackupJobId'])
 
 
 
