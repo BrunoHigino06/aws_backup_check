@@ -18,6 +18,7 @@ def aws_backup_check():
         print("Key exist in JSON data")
     else:
         print("Key doesn't exist in JSON data")
+        print(database)
 
 
 
