@@ -1,3 +1,4 @@
+from time import process_time_ns
 import boto3
 import json
 
@@ -16,6 +17,8 @@ def aws_backup_check():
             print('No ID')
         else:
             print(jobId['BackupJobId'])
+
+        print('test')
 
 
 aws_backup_check()
