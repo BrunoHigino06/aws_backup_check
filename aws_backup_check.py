@@ -12,7 +12,7 @@ def aws_backup_check():
 
     database = json.loads(json_response)
 
-    BackupJobId = database['BackupJobs'][0]['BackupJobId']
+    BackupJobId = database['BackupJobs']['BackupJobId']
     
     if BackupJobId in database['BackupJobs']:
         print("Key exist in JSON data")
