@@ -13,7 +13,7 @@ def aws_backup_check():
 
     for jobId in database['BackupJobs']:
         print('Check the if have Backup Id')
-        if jobId['BackupJobId'] == '':
+        if jobId['BackupJobId'] == None:
             print('No ID')
         else:
             print(jobId['BackupJobId'])
