@@ -7,7 +7,7 @@ def aws_backup_check():
         MaxResults=1
     )
 
-    json_response = json.dumps(response, indent=4)
+    json_response = json.dumps(response, indent=4, sort_keys=True, default=str)
     print("Response test: "+json_response)
 
 
