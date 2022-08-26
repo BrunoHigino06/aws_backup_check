@@ -2,7 +2,7 @@ import boto3
 import json
 
 def aws_backup_check():
-    client = boto3.client('backup', region_name='sa-east-1')
+    client = boto3.client('backup', region_name='us-east-1')
     response = client.list_backup_jobs(
         MaxResults=1
     )
