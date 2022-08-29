@@ -19,8 +19,4 @@ def aws_backup_check():
         print('No founded')
 
 
-    
-
-
-
 aws_backup_check()
