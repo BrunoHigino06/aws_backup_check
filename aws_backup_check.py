@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from time import process_time_ns
 import boto3
 import json
@@ -14,7 +15,7 @@ def aws_backup_check():
 
     for jobId in database['BackupJobs']:
                
-        if jobId['BackupJobs'] == '[]':
+        if jobId['BackupJobs'] == NULL:
             print('No ID')
         else:
             print('exist')
