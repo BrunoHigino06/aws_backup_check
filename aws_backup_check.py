@@ -14,6 +14,3 @@ def aws_backup_check(accountid):
         test = True if "BackupJobId" in database["BackupJobs"][0] else False
     except:
         print(accountid)
-
-
-aws_backup_check()
