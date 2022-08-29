@@ -16,10 +16,6 @@ def aws_backup_check():
         if jobId['BackupJobId']:
             print('exist')
 
-        elif jobId['BackupJobId']:
-            print('No Id')
-
-
 
 
 aws_backup_check()
