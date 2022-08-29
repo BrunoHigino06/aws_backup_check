@@ -12,7 +12,7 @@ def aws_backup_check():
 
     database = json.loads(json_response)
 
-    if "BackupJobs" in database['BackupJobs']:
+    if 'BackupJobs' in database['BackupJobs']:
         print('Exist')
 
     else:
