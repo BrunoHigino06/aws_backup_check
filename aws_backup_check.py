@@ -15,7 +15,7 @@ def aws_backup_check():
                
         if jobId['BackupJobId']:
             print('exist')
-        if jobId['BackupJobId'] not in jobId['BackupJobs']:
+        if not jobId['BackupJobId']:
             print('not exist')
 
 
