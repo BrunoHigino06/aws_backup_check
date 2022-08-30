@@ -1,3 +1,3 @@
 import os
 
-os.system('')
+os.system('python3 generate_report.py > report.txt')

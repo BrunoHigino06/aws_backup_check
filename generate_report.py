@@ -6,3 +6,5 @@ def generate_report():
         for id in f:
             sts_session(id.strip())
             aws_backup_check(id)
+
+generate_report()
