@@ -1,12 +1,12 @@
 import boto3
 import json
 
-def aws_backup_check(accountid):
+def aws_backup_check(accountid, KEY_ID, ACCESS_KEY, TOKEN):
     regions = ["us-east-1", "sa-east-1"]
 
     for region in regions:
 
-        client = boto3.client('backup', region_name=region)
+        client = boto3.client('backup', region_name=region, aws_access_key_id=KEY_ID, aws_secret_access_key=ACCESS_KEY, aws_session_token=TOKEN)
         response = client.list_backup_jobs(
             MaxResults=1
         )
