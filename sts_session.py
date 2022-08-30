@@ -1,6 +1,13 @@
 import boto3, logging, os
 
+KEY_ID = None
+ACCESS_KEY = None
+TOKEN = None
+
 def sts_session(accountid):
+    global KEY_ID
+    global ACCESS_KEY
+    global TOKEN
 
     role_list = ["AWSCloudFormationStackSetExecutionRole","AWSControlTowerExecution","stacksets-exec-46288c5824f5abf8b0d0317def1b12e5"]
     
