@@ -1,8 +1,8 @@
 import boto3, logging, os
 
-KEY_ID = None
-ACCESS_KEY = None
-TOKEN = None
+key = None
+access = None
+token = None
 
 def sts_session(accountid):
     global KEY_ID
@@ -23,7 +23,9 @@ def sts_session(accountid):
             TOKEN = sts_session['Credentials']['SessionToken']
             os.system('aws configure set aws_access_key_id '+KEY_ID+' | aws configure set aws_secret_access_key '+ACCESS_KEY+' | aws configure set aws_session_token '+TOKEN)
             logging.info(f'Credenciais temporárias recebidas para {accountid} com a role {role}')
-            return KEY_ID, ACCESS_KEY, TOKEN
+            key = KEY_ID
+            access = ACCESS_KEY
+            token = TOKEN
 
         except Exception as e:
             logging.info(f'Erro ao acessar {accountid} com a role {role}')
