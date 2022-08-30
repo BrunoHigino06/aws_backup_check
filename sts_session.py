@@ -5,9 +5,9 @@ access = None
 token = None
 
 def sts_session(accountid):
-    global KEY_ID
-    global ACCESS_KEY
-    global TOKEN
+    global key
+    global access
+    global token
 
     role_list = ["AWSCloudFormationStackSetExecutionRole","AWSControlTowerExecution","stacksets-exec-46288c5824f5abf8b0d0317def1b12e5"]
     
