@@ -1,13 +1,6 @@
 import boto3, logging, os
 
-key = None
-access = None
-token = None
-
 def sts_session(accountid):
-    global key
-    global access
-    global token
 
     role_list = ["AWSCloudFormationStackSetExecutionRole","AWSControlTowerExecution","stacksets-exec-46288c5824f5abf8b0d0317def1b12e5"]
     
@@ -21,11 +14,12 @@ def sts_session(accountid):
             KEY_ID = sts_session['Credentials']['AccessKeyId']
             ACCESS_KEY = sts_session['Credentials']['SecretAccessKey']
             TOKEN = sts_session['Credentials']['SessionToken']
+            os.environ["KEY_ID"] = KEY_ID
+            os.environ["ACCESS_KEY"] = ACCESS_KEY
+            os.environ["TOKEN"] = TOKEN
             os.system('aws configure set aws_access_key_id '+KEY_ID+' | aws configure set aws_secret_access_key '+ACCESS_KEY+' | aws configure set aws_session_token '+TOKEN)
             logging.info(f'Credenciais temporárias recebidas para {accountid} com a role {role}')
-            key = KEY_ID
-            access = ACCESS_KEY
-            token = TOKEN
+            return KEY_ID, ACCESS_KEY, TOKEN
 
         except Exception as e:
             logging.info(f'Erro ao acessar {accountid} com a role {role}')
