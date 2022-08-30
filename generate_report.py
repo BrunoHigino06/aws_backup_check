@@ -6,6 +6,6 @@ def generate_report():
     with open("accounts.txt") as f:
         for id in f:
             sts_session(id.strip())
-            aws_backup_check(id, os.environ.get["KEY_ID"], os.environ.get["ACCESS_KEY"], os.environ.get["TOKEN"])
+            aws_backup_check(id, os.getenv('KEY_ID'), os.getenv('ACCESS_KEY'), os.getenv('TOKEN'))
 
 generate_report()
