@@ -14,9 +14,9 @@ def sts_session(accountid):
             KEY_ID = sts_session['Credentials']['AccessKeyId']
             ACCESS_KEY = sts_session['Credentials']['SecretAccessKey']
             TOKEN = sts_session['Credentials']['SessionToken']
-            os.putenv("KEY_ID", KEY_ID)
-            os.putenv("ACCESS_KEY", ACCESS_KEY)
-            os.putenv("TOKEN", TOKEN)
+            os.environ['KEY_ID'] = KEY_ID
+            os.environ['ACCESS_KEY'] = ACCESS_KEY
+            os.environ['TOKEN'] = TOKEN
             os.system('aws configure set aws_access_key_id '+KEY_ID+' | aws configure set aws_secret_access_key '+ACCESS_KEY+' | aws configure set aws_session_token '+TOKEN)
             logging.info(f'Credenciais temporárias recebidas para {accountid} com a role {role}')
             return KEY_ID, ACCESS_KEY, TOKEN
