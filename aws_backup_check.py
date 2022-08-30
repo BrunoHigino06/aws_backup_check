@@ -2,7 +2,7 @@ import boto3
 import json
 
 def aws_backup_check(accountid):
-    regions = ['us-east-1', 'sa-east-1']
+    regions = ["us-east-1", "sa-east-1"]
 
     for region in regions:
 
