@@ -16,5 +16,6 @@ def aws_backup_check(accountid, KEY_ID, ACCESS_KEY, TOKEN):
         database = json.loads(json_response)
         try:
             test = True if "BackupJobId" in database["BackupJobs"][0] else False
+            print(database)
         except:
             print('No backup job found in the region: '+region+' for the account: '+accountid)
