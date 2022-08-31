@@ -1,6 +1,5 @@
 import os
 from sts_session import sts_session
-from aws_backup_check import aws_backup_check
 
 def generate_report():
     print('AccountId,Account Name,Region,Backup?')
