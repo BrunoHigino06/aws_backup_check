@@ -1,4 +1,4 @@
-import boto3, logging, os
+import boto3, logging
 from aws_backup_check import aws_backup_check
 
 def sts_session(accountid):
