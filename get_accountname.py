@@ -11,7 +11,7 @@ def get_accountname(accountid):
 
     org_database = json.loads(org_json)
 
-    accountname = org_database['Account'][0]['Name']
+    accountname = org_database['Account']['Name']
 
     print(accountname)
 
