@@ -28,5 +28,7 @@ def aws_backup_check(accountid, KEY_ID, ACCESS_KEY, TOKEN):
         database = json.loads(json_response)
         try:
             test = True if "BackupJobId" in database["BackupJobs"][0] else False
+            print(accountid+','+accountname+','+region+',SIM')
+
         except:
-            print(accountid+','+accountname+','+region+',Não')
+            print(accountid+','+accountname+','+region+',NAO')
