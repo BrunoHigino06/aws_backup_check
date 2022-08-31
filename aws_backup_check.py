@@ -18,4 +18,4 @@ def aws_backup_check(accountid, KEY_ID, ACCESS_KEY, TOKEN):
         try:
             test = True if "BackupJobId" in database["BackupJobs"][0] else False
         except:
-            print(accountid+','+accountname+','+region+'No')
+            print('No find')
