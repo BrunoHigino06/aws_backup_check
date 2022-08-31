@@ -7,7 +7,7 @@ def aws_backup_check(accountid, KEY_ID, ACCESS_KEY, TOKEN):
 
     for region in regions:
 
-        organizations = boto3.client('organizations', aws_access_key_id=KEY_ID, aws_secret_access_key=ACCESS_KEY, aws_session_token=TOKEN)
+        organizations = boto3.client('organizations', region_name=region, aws_access_key_id=KEY_ID, aws_secret_access_key=ACCESS_KEY, aws_session_token=TOKEN)
         org_response = organizations.describe_account(
         AccountId=accountid
         )
