@@ -14,3 +14,5 @@ def get_accountname(accountid):
     accountname = org_database['Account'][0]['Name']
 
     print(accountname)
+
+get_accountname()
