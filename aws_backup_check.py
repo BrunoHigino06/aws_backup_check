@@ -3,6 +3,17 @@ import json
 
 def aws_backup_check(accountid, KEY_ID, ACCESS_KEY, TOKEN):
 
+    organizations = boto3.client('organizations')
+    org_response = organizations.describe_account(
+        AccountId=accountid
+    )
+
+    org_json = json.dumps(org_response, indent=4, sort_keys=True, default=str)
+
+    org_database = json.loads(org_json)
+
+    accountname = org_database['Account'][0]['Name']
+
     regions = ["us-east-1", "sa-east-1"]
 
     for region in regions:
@@ -18,4 +29,4 @@ def aws_backup_check(accountid, KEY_ID, ACCESS_KEY, TOKEN):
         try:
             test = True if "BackupJobId" in database["BackupJobs"][0] else False
         except:
-            print(accountid+',,'+region+'Não')
+            print(accountid+','+accountname+','+region+'Não')
