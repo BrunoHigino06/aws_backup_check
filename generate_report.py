@@ -1,4 +1,3 @@
-import os
 from sts_session import sts_session
 
 def generate_report():
